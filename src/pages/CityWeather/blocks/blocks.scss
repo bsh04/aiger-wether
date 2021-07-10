@@ -1,0 +1,106 @@
+.titleContainer {
+  .citySelected {
+    display: flex;
+    font-size: 34px;
+    margin-bottom: 15px;
+  }
+
+  .lastUpdateTime {
+    display: flex;
+
+    span {
+      color: darkblue;
+    }
+  }
+}
+
+.cardsContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  .cardContainer {
+    cursor: pointer;
+    width: 230px;
+    height: 150px;
+    background-color: transparent;
+    border: 1px solid #0d6efd;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s ease-in height;
+    overflow-y: hidden;
+
+    &:active {
+      height: 300px;
+    }
+
+    &:hover {
+      height: 300px;
+      transition: 0.3s ease-out height;
+    }
+
+    .main {
+      min-height: 190px;
+
+      .date-and-time {
+        font-size: 18px;
+      }
+
+      .description {
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}
+
+.DirectionOfWind {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .compass {
+    display: flex;
+    position: relative;
+    padding: 5px;
+
+    .arrows-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid blue;
+      border-radius: 100%;
+      width: 60px;
+      height: 60px;
+
+      .northArrow {
+        position: absolute;
+        color: red;
+        transform: translateY(-8.5px);
+      }
+
+      .centerIcon {
+        position: absolute;
+        z-index: 2;
+        font-size: 22.25px;
+      }
+
+      .southArrow {
+        height: 100%;
+        position: absolute;
+        color: #0d6efd;
+        transform: rotate(180deg) translateY(-8.5px);
+      }
+    }
+  }
+}

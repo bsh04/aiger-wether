@@ -1,0 +1,45 @@
+.CitySelectPageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  flex-direction: column;
+
+  .title {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    h2 {
+      color: #444444;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  .form {
+    width: 70%;
+    height: 200px;
+    padding: 20px;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .select-city {
+      label {
+        margin-bottom: 8px;
+      }
+    }
+
+    .search-city {
+      label {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}

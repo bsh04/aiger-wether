@@ -1,0 +1,17 @@
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d6efd!important;
+  font-weight: 600;
+  p {
+    padding-left: 8px;
+    margin-bottom: 0;
+  }
+}
+
+.about {
+  &:focus {
+    box-shadow: none!important;
+  }
+}
