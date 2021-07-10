@@ -7,10 +7,10 @@ import {DirectionOfWind} from "./DirectionOfWind";
 
 const parseIconUrl = (icon: string) => openweatherImageUrl + icon + ".png"
 
-export const WeatherCard: React.FC<CityDataI> = ({dt, dt_txt, weather, main, sys, wind}) => {
+export const WeatherCard: React.FC<CityDataI> = ({dt, weather, main, sys, wind}) => {
     const {time, date} = getDate(dt)
     return (
-        <div className="cardContainer">
+        <div className="card-container">
             <div className="main">
                 <div className="date-and-time">{date} {time}</div>
                 <div className="description">

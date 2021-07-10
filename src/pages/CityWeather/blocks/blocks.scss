@@ -1,25 +1,15 @@
-.titleContainer {
-  .citySelected {
-    display: flex;
-    font-size: 34px;
-    margin-bottom: 15px;
-  }
-
-  .lastUpdateTime {
-    display: flex;
-
-    span {
-      color: darkblue;
-    }
-  }
+.city-selected {
+  display: flex;
+  font-size: 34px;
+  margin-bottom: 15px;
 }
 
-.cardsContainer {
+.cards-container {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
 
-  .cardContainer {
+  .card-container {
     cursor: pointer;
     width: 230px;
     height: 150px;
@@ -63,7 +53,7 @@
   }
 }
 
-.DirectionOfWind {
+.direction-of-wind {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,24 +68,25 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid blue;
+      box-shadow: 0 0 7px blue;
+      border: 2px solid cornflowerblue;
       border-radius: 100%;
       width: 60px;
       height: 60px;
 
-      .northArrow {
+      .north-arrow {
         position: absolute;
         color: red;
         transform: translateY(-8.5px);
       }
 
-      .centerIcon {
+      .center-icon {
         position: absolute;
         z-index: 2;
         font-size: 22.25px;
       }
 
-      .southArrow {
+      .south-arrow {
         height: 100%;
         position: absolute;
         color: #0d6efd;

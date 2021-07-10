@@ -1,16 +1,12 @@
 import React from 'react';
-import {useSelector} from "react-redux";
-import {weatherSelectors} from "../../../redux/slices/weatherSlice";
 import "./blocks.scss"
 
-export const CityWeatherTitle = () => {
-    const data = useSelector(weatherSelectors.getData())
+interface CityWeatherTitleProps {
+    name?: string
+}
 
-    return (
-        <div className="titleContainer">
-            <div className="citySelected">
-                {data?.city.name}
-            </div>
-        </div>
-    );
-};
+export const CityWeatherTitle: React.FC<CityWeatherTitleProps> = ({name}) => (
+    <div className="city-selected">
+        {name}
+    </div>
+)

@@ -9,7 +9,7 @@ export const getDate = (initDate: number | undefined) => {
     let date
     let time
     if (initDate) {
-        date = moment(initDate * 1000).format("DD MMMM YYYY")
+        date = moment(initDate * 1000).format("DD MMMM")
         time = toFixedTimeLength(moment(initDate * 1000).hour()) + ":" + toFixedTimeLength(moment(initDate * 1000).minutes())
     }
 

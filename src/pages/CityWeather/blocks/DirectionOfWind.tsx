@@ -10,15 +10,15 @@ interface DirectionOfWindProps {
 
 export const DirectionOfWind: React.FC<DirectionOfWindProps> = ({deg}) => {
     return (
-        <div className="DirectionOfWind">
+        <div className="direction-of-wind">
             <div className="compass">
                 <div className="arrows-wrapper" style={{transform: `rotate(${deg}deg)`}}>
-                    <NavigationIcon className="northArrow" />
-                    <FiberManualRecordIcon className="centerIcon" />
-                    <NavigationIcon className="southArrow" />
+                    <NavigationIcon className="north-arrow" />
+                    <FiberManualRecordIcon className="center-icon" />
+                    <NavigationIcon className="south-arrow" />
                 </div>
             </div>
-            <div>{directionOfWind[+(deg / 45).toFixed()]} ветер</div>
+            <div>{directionOfWind[Math.floor(+(deg / 45))]} ветер</div>
         </div>
     );
 };

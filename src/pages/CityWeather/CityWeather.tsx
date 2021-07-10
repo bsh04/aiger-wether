@@ -8,15 +8,13 @@ import {WeatherCardsContainer} from "./blocks/WeatherCardsContainer";
 
 export const CityWeather: React.FC = () => {
     useFetchWeather()
-
     const status = useSelector(weatherSelectors.getStatus())
+    const data = useSelector(weatherSelectors.getData())
 
     return (
-        <div>
-            <APIRequestWrapper status={status}>
-                <CityWeatherTitle />
-                <WeatherCardsContainer />
-            </APIRequestWrapper>
-        </div>
+        <APIRequestWrapper status={status}>
+            <CityWeatherTitle name={data?.city.name} />
+            <WeatherCardsContainer list={(data?.list || [])} />
+        </APIRequestWrapper>
     );
 };
