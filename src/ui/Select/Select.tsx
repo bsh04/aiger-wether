@@ -10,7 +10,8 @@ export const Select: React.FC<CustomSelectProps> = (selectProps) => {
     return (
         <div className="input-group mb-3">
             <select className="form-select" {...selectProps}>
-                {selectProps.options.map(({id, name}) => <option value={id}>{name}</option>)}
+                <option disabled selected defaultValue="1">Выберите город из списка</option>
+                {selectProps.options.map(({id, name}) => <option key={id} value={id}>{name}</option>)}
             </select>
         </div>
     );

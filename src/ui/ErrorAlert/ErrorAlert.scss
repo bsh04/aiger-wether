@@ -5,7 +5,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   span {
     font-size: 30px;
+  }
+  .reload {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #0d6efd;
   }
 }

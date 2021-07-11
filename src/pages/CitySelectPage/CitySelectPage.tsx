@@ -23,7 +23,7 @@ export const CitySelectPage: React.FC = () => {
                 </div>
                 <div className="search-city">
                     <label htmlFor="searchCity">Введите название города</label>
-                    <Input id="searchCity" onKeyPress={(e) => e.code === "Enter" && handleSearch(e)} />
+                    <Input id="searchCity" placeholder="Введите название" onKeyPress={(e) => e.code === "Enter" && handleSearch(e)} />
                 </div>
             </div>
         </div>

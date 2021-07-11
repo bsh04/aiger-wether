@@ -10,7 +10,30 @@ export enum RequestStatus {
     Fail = "Fail",
 }
 
+export enum WeatherTabsIds {
+    Now = "now",
+    Today = "today",
+    TwoDay = "two_day"
+}
+
+export enum SearchParams {
+    selectedTab = "selected_tab"
+}
+
+export const WeatherTabsView = {
+    [WeatherTabsIds.Now]: "Сейчас",
+    [WeatherTabsIds.Today]: "На день вперед",
+    [WeatherTabsIds.TwoDay]: "На два дня вперед",
+}
+
+export interface WeatherTabsItemI {
+    id: WeatherTabsIds
+    name: string
+    sectionsCount: number
+}
+
 export interface WeathersList {
+    section: WeatherTabsIds
     city: DefaultItemProps
     list: Array<CityDataI>
 }
@@ -32,6 +55,12 @@ export interface CityDataI {
         temp: number
         temp_max: number
         temp_min: number
+    }
+    rain?: {
+        "3h": number
+    }
+    snow?: {
+        "3h": number
     }
     wind: {
         deg: number

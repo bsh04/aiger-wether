@@ -1,10 +1,14 @@
-import {bindActionCreators, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {RequestStatus, WeathersList} from "../../types";
+import {
+    bindActionCreators,
+    createSlice,
+    PayloadAction,
+} from "@reduxjs/toolkit";
+import {RequestStatus, WeathersList, WeatherTabsIds} from "../../types";
 import {useDispatch} from "react-redux";
 
 interface SliceState {
     status: RequestStatus,
-    data?: WeathersList
+    data?: Array<WeathersList>
 }
 
 const initialState: SliceState = {
@@ -21,14 +25,17 @@ export const weatherSlice = createSlice({
         failFetch(state: SliceState) {
             state.status = RequestStatus.Fail
         },
-        successFetch(state: SliceState, action: PayloadAction<WeathersList>) {
-            state.data = action.payload
+        setStatusOnSuccess(state: SliceState) {
             state.status = RequestStatus.Success
         },
-        reset() {
-            return initialState
+        successFetch(state: SliceState, action: PayloadAction<WeathersList>) {
+            state.data = [...(state.data || []), action.payload]
+            state.status = RequestStatus.Success
+        },
+        reset(state: SliceState) {
+            state = initialState
         }
-    }
+    },
 })
 
 interface Store {
@@ -38,6 +45,8 @@ interface Store {
 export const weatherSelectors = {
     getStatus: () => (state: Store) => state.weather.status,
     getData: () => (state: Store) => state.weather.data,
+    getOpenedCity: (section: WeatherTabsIds, id?: number, name?: string) => (state: Store) =>
+        state.weather.data?.find((item) => (item.city.id === id && section === item.section) || (item.city.name === name && section === item.section)),
 }
 
 export const useWeatherActionCreators = () => {

@@ -1,4 +1,4 @@
-import {DefaultItemProps} from "../types";
+import {DefaultItemProps, WeatherTabsIds, WeatherTabsItemI, WeatherTabsView} from "../types";
 
 export const staticSelectableCity: Array<DefaultItemProps> = [
     {
@@ -40,3 +40,22 @@ export const staticSelectableCity: Array<DefaultItemProps> = [
 ]
 
 export const directionOfWind = ["Северный", "Северо-Восточный", "Восточный", "Южно-Восточный", "Южный", "Южно-Западный", "Западный", "Северо-Западный"]
+
+
+export const weatherTabs: Array<WeatherTabsItemI> = [
+    {
+        id: WeatherTabsIds.Now,
+        name: WeatherTabsView[WeatherTabsIds.Now],
+        sectionsCount: 1,
+    },
+    {
+        id: WeatherTabsIds.Today,
+        name: WeatherTabsView[WeatherTabsIds.Today],
+        sectionsCount: 9,
+    },
+    {
+        id: WeatherTabsIds.TwoDay,
+        name: WeatherTabsView[WeatherTabsIds.TwoDay],
+        sectionsCount: 18,
+    },
+]

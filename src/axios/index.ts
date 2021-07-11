@@ -2,6 +2,7 @@ import axios from "axios";
 import {openweatherAPIkey, openweatherBaseUrl} from "../config.json"
 
 interface AxiosRequestProps {
+    sectionsCount?: number
     cityName?: string
     cityId?: number
     onError?: (error: any) => void
@@ -10,10 +11,10 @@ interface AxiosRequestProps {
 }
 
 export const axiosRequest: (params: AxiosRequestProps) => void = async (params) => {
-    const {cityId, cityName, onError, onSuccess, baseUrl} = params
+    const {cityId, cityName, onError, onSuccess, baseUrl, sectionsCount} = params
     try {
         let response
-        response = await axios.get(`${baseUrl || openweatherBaseUrl}?${requestParse(cityName, cityId)}&appid=${openweatherAPIkey}&lang=ru&units=metric&cnt=5`)
+        response = await axios.get(`${baseUrl || openweatherBaseUrl}?${requestParse(cityName, cityId)}&appid=${openweatherAPIkey}&lang=ru&units=metric&cnt=${sectionsCount || 8}`)
         onSuccess && onSuccess(response.data)
     } catch (err) {
         onError && onError(err)
