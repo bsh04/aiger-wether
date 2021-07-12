@@ -1,5 +1,6 @@
 {
   "openweatherAPIkey": "ab0a4ea917896bcc9d08d029252b2507",
   "openweatherBaseUrl": "http://api.openweathermap.org/data/2.5/forecast",
+  "openweatherCurrentBaseUrl": "http://api.openweathermap.org/data/2.5/weather",
   "openweatherImageUrl": "http://openweathermap.org/img/wn/"
 }

@@ -6,7 +6,7 @@ import {WeatherCardsContainer} from "./blocks/WeatherCardsContainer";
 import {WeatherTabs} from "./blocks/WeatherTabs";
 import {useHistory} from "react-router-dom";
 import "./blocks/blocks.scss"
-import {FavoriteButton} from "./blocks/FavoriteButton";
+import {ActionsButton} from "./blocks/ActionsButton";
 
 export const CityWeather: React.FC = () => {
     const {fetch, data, status} = useFetchWeather()
@@ -14,16 +14,19 @@ export const CityWeather: React.FC = () => {
 
     useEffect(() => {
         fetch()
+        // eslint-disable-next-line
     }, [history.location.search])
 
     return (
-        <APIRequestWrapper status={status}>
-            <CityWeatherTitle name={data?.city.name}/>
-            <div className="tabs-and-favorite">
+        <div className="city-weather-container">
+            <APIRequestWrapper status={status}>
+                <div className="title-and-favorite">
+                    <CityWeatherTitle name={data?.city.name}/>
+                    <ActionsButton {...data?.city} />
+                </div>
                 <WeatherTabs/>
-                <FavoriteButton {...data?.city} />
-            </div>
-            <WeatherCardsContainer list={(data?.list || [])}/>
-        </APIRequestWrapper>
+                <WeatherCardsContainer timezone={data?.city.timezone} list={(data?.list || [])}/>
+            </APIRequestWrapper>
+        </div>
     );
 };

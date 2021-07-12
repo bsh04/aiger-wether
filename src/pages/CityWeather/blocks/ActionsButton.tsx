@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShareIcon from '@material-ui/icons/Share';
 import {Tooltip} from '@material-ui/core';
 import {getCities, setCities} from "../../../features/citiesManages";
 import {CityI} from "../../../types";
@@ -11,9 +12,10 @@ interface FavoriteButtonProps {
     name?: string
 }
 
-
-export const FavoriteButton: React.FC<FavoriteButtonProps> = ({id, name}) => {
+export const ActionsButton: React.FC<FavoriteButtonProps> = ({id, name}) => {
     const cities = getCities()
+
+    const [shareTooltipTitle, setShareTooltipTitle] = useState("Скопировать ссылку")
 
     useEffect(() => {
         if (!!cities) {
@@ -30,19 +32,30 @@ export const FavoriteButton: React.FC<FavoriteButtonProps> = ({id, name}) => {
             if (isAddedToFavorite) {
                 setCities((JSON.parse(cities) as Array<CityI>).filter(({id: cityId}) => cityId !== id))
             } else {
-                setCities({
-                    id,
-                    name,
-                    init: false,
-                })
+                setCities({id, name})
             }
         }
         setIsAddedToFavorite(!isAddedToFavorite)
     }
 
+    const handleCopyUrl = useCallback(() => {
+        navigator.clipboard.writeText(window.location.href).then(() => setShareTooltipTitle("Ссылка скопирована!"))
+    }, [])
+
     return (
-        <div onClick={handleChangeToFavorite}>
-            <Tooltip title={isAddedToFavorite ? "Удалить из избранного" : "Добавить в избранное"} placement="top">
+        <div className="actions-container">
+            <Tooltip
+                title={shareTooltipTitle}
+                placement={"top"}
+                onClick={handleCopyUrl}
+            >
+                <ShareIcon className="share"/>
+            </Tooltip>
+            <Tooltip
+                title={isAddedToFavorite ? "Удалить из избранного" : "Добавить в избранное"}
+                placement="top"
+                onClick={handleChangeToFavorite}
+            >
                 <div>
                     {
                         isAddedToFavorite

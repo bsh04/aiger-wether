@@ -6,6 +6,7 @@
   flex-direction: column;
 
   .title {
+    padding: 0 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -27,6 +28,11 @@
     align-items: center;
     justify-content: space-around;
 
+    .search-button {
+      margin-top: 15px;
+      display: none;
+    }
+
     .select-city {
       label {
         margin-bottom: 8px;
@@ -42,6 +48,10 @@
     @media screen and (max-width: 1000px) {
       flex-direction: column;
       height: auto;
+
+      .search-button {
+        display: block;
+      }
 
       .search-city {
         label {

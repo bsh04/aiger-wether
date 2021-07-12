@@ -22,7 +22,7 @@ export const axiosRequest: (params: AxiosRequestProps) => void = async (params) 
 
 }
 
-const requestParse = (name?: string, id?: number) => {
+const requestParse: (name?: string, id?: number) => string | undefined = (name, id) => {
     if (!id && !name) return undefined
     if (!!id && !name) return `id=${id}`
     if (!id && !!name) return `q=${name}`

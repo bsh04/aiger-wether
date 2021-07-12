@@ -6,7 +6,7 @@ interface CityWeatherTitleProps {
 }
 
 export const CityWeatherTitle: React.FC<CityWeatherTitleProps> = ({name}) => (
-    <div className="city-selected">
+    <div className="city-title">
         {name}
     </div>
 )

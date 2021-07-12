@@ -1,10 +1,8 @@
 import React from 'react';
 import "./Loading.scss"
 
-export const Loading = () => (
+export const Loading: React.FC = () => (
     <div className="loading-container">
-        <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
-        </div>
+        <div className="spinner-border text-primary" role="status"/>
     </div>
 )

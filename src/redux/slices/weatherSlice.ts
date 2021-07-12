@@ -1,7 +1,7 @@
 import {
     bindActionCreators,
     createSlice,
-    PayloadAction, Slice,
+    PayloadAction,
 } from "@reduxjs/toolkit";
 import {RequestStatus, WeathersList, WeatherTabsIds} from "../../types";
 import {useDispatch} from "react-redux";
@@ -49,10 +49,9 @@ interface Store {
 
 export const weatherSelectors = {
     getStatus: () => (state: Store) => state.weather.status,
-    getData: () => (state: Store) => state.weather.data,
     getIsReset: () => (state: Store) => state.weather.isReset,
     getOpenedCity: (section: WeatherTabsIds, id?: number, name?: string) => (state: Store) =>
-        state.weather.data?.find((item) => (item.city.id === id && section === item.section) || (item.city.name === name && section === item.section)),
+        state.weather.data?.find((item) => (item.city.id === id && section === item.section) || (item.city.name.toLowerCase() === name?.toLowerCase() && section === item.section)),
 }
 
 export const useWeatherActionCreators = () => {

@@ -7,15 +7,13 @@ interface ApiRequestWrapperPropsProps {
     status: RequestStatus
 }
 
-export const APIRequestWrapper: React.FC<ApiRequestWrapperPropsProps> = ({status, children}) => {
-    return (
-        <>
-            {status === RequestStatus.Loading
-                ? <Loading/>
-                : status === RequestStatus.Fail
-                    ? <ErrorAlert/>
-                    : status === RequestStatus.Success && children
-            }
-        </>
-    );
-};
+export const APIRequestWrapper: React.FC<ApiRequestWrapperPropsProps> = ({status, children}) => (
+    <>
+        {status === RequestStatus.Loading
+            ? <Loading/>
+            : status === RequestStatus.Fail
+                ? <ErrorAlert/>
+                : status === RequestStatus.Success && children
+        }
+    </>
+)

@@ -1,12 +1,10 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import "./Input.scss"
 
 interface CustomInputProps extends React.HTMLProps<HTMLInputElement> {}
 
-export const Input: React.FC<CustomInputProps> = (inputProps) => {
-    return (
-        <div>
-            <input {...inputProps} className="form-control" />
-        </div>
-    );
-};
+export const Input = forwardRef<HTMLInputElement, CustomInputProps>((inputProps, ref) => (
+    <div>
+        <input ref={ref} {...inputProps} className="form-control"/>
+    </div>
+))

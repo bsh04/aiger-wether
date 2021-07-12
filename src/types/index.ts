@@ -28,9 +28,7 @@ export const WeatherTabsView = {
     [WeatherTabsIds.TwoDay]: "На два дня вперед",
 }
 
-export interface CityI extends DefaultItemProps {
-    init: boolean
-}
+export interface CityI extends DefaultItemProps {}
 
 export interface WeatherTabsItemI {
     id: WeatherTabsIds
@@ -38,9 +36,13 @@ export interface WeatherTabsItemI {
     sectionsCount: number
 }
 
+export interface DataCityI extends DefaultItemProps {
+    timezone: number
+}
+
 export interface WeathersList {
     section: WeatherTabsIds
-    city: DefaultItemProps
+    city: DataCityI
     list: Array<CityDataI>
 }
 
@@ -52,6 +54,9 @@ export interface WeatherI {
 }
 
 export interface CityDataI {
+    id: number
+    name: string
+    timezone: number
     main: {
         feels_like: number
         grnd_level: number

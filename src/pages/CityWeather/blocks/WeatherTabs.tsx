@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {weatherTabs} from "../../../static";
 import "./blocks.scss"
 import {SearchParams, WeatherTabsIds} from "../../../types";
@@ -13,13 +13,13 @@ export const WeatherTabs = () => {
         history.push({
             search: `?${SearchParams.selectedTab}=${id}`
         })
-    }, [history, fetch, selectedTab])
+    }, [history])
 
     useEffect(() => {
         if (!history.location.search.includes(SearchParams.selectedTab)) {
             setSearchParams(WeatherTabsIds.Now)
         }
-    }, [])
+    }, [history.location.search, setSearchParams])
 
     return (
         <div className="tabs-container">
