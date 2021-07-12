@@ -45,7 +45,6 @@ export const staticSelectableCity: Array<CityI> = [
 
 export const directionOfWind = ["Северный", "Северо-Восточный", "Восточный", "Южно-Восточный", "Южный", "Южно-Западный", "Западный", "Северо-Западный"]
 
-
 export const weatherTabs: Array<WeatherTabsItemI> = [
     {
         id: WeatherTabsIds.Now,
