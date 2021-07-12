@@ -4,11 +4,33 @@
   margin-bottom: 15px;
 }
 
+.tabs-and-favorite {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.favorite {
+  cursor: pointer;
+  color: red;
+}
+
 .cards-container {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
+
+  @media screen and (max-width: 550px) {
+    flex-direction: column;
+    align-items: center;
+
+    .card-container {
+      width: 80% !important;
+
+      margin-right: 0 !important;
+    }
+  }
 
   .card-container {
     cursor: pointer;
@@ -109,6 +131,12 @@
   margin-top: 20px;
   margin-bottom: 15px;
 
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   .tab {
     cursor: pointer;
     padding: 10px 20px;
@@ -117,6 +145,7 @@
     transition: .3s all;
     border: 1px solid transparent;
     color: white;
+    white-space: nowrap;
 
     &.-selected {
       border-color: #ff4512;

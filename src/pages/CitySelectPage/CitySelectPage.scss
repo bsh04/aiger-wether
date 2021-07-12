@@ -10,13 +10,10 @@
     justify-content: center;
     flex-direction: column;
     margin-bottom: 10px;
+    text-align: center;
 
     h2 {
       color: #444444;
-    }
-
-    p {
-      text-align: center;
     }
   }
 
@@ -39,6 +36,17 @@
     .search-city {
       label {
         margin-bottom: 8px;
+      }
+    }
+
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+      height: auto;
+
+      .search-city {
+        label {
+          margin-top: 20px;
+        }
       }
     }
   }

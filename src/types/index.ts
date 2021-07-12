@@ -20,10 +20,16 @@ export enum SearchParams {
     selectedTab = "selected_tab"
 }
 
+export const citiesLocalStorageParam = "cities"
+
 export const WeatherTabsView = {
     [WeatherTabsIds.Now]: "Сейчас",
     [WeatherTabsIds.Today]: "На день вперед",
     [WeatherTabsIds.TwoDay]: "На два дня вперед",
+}
+
+export interface CityI extends DefaultItemProps {
+    init: boolean
 }
 
 export interface WeatherTabsItemI {
